@@ -73,10 +73,10 @@ class commandstring:
 @before(PreProcessRequest(maxdev))
 class connected:
     def on_get(self, req: Request, resp: Response, devnum: int):
-            # -------------------------------
-            is_conn = ### READ CONN STATE ###
-            # -------------------------------
-        resp.text = PropertyResponse(is_conn, req).json)
+        # -------------------------------
+        is_conn = ### READ CONN STATE ###
+        # -------------------------------
+        resp.text = PropertyResponse(is_conn, req).json
 
     def on_put(self, req: Request, resp: Response, devnum: int):
         conn_str = get_request_field('Connected', req)
@@ -87,7 +87,7 @@ class connected:
             # --------------------------------
            resp.text = MethodResponse(req).json
         except Exception as ex:
-            DriverException(0x500, 'Covercalibrator.{Memname} failed', ex)).json
+            DriverException(0x500, 'Covercalibrator.{Memname} failed', ex).json
 
 @before(PreProcessRequest(maxdev))
 class description:
